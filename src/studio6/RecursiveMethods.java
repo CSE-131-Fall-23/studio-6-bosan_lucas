@@ -37,14 +37,17 @@ public class RecursiveMethods {
 	 */
 	public static int gcd(int p, int q) {
 		
-		if( p > q) {
+		/*make q  always bigger*/
+		if( p > q) {				
 			int temp = p;
 			q = p;
 			p = temp;
 		}
 		
+		/* if q%p!=0, find the number smaller than p that q%(p-n) = 0 */
 		if( q % p != 0) {
-			return( gcd( p-1, q ));
+			int gcd_num = gcd( p-1, q );
+			return gcd( p-1, q);
 		}
 		else {
 			int gcd_num = p;
